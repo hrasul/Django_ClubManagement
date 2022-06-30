@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Remove Equipment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+ <body>
+  <div class="container">
+      <h1>Remove Equipment</h1>
+      <hr>
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Equipment to be removed
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      {%for equipmnt in equipmnts %}
+    <li><a class="dropdown-item" href="/remove_equipment/{{equipmnt.id}}">{{equipmnt.name}} {{equipmnt.description}}</a></li>
+      {% endfor%}
+  </ul>
+</div>
+
+
+</form>
+
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>

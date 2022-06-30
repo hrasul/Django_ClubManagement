@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>borrow equipment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Borrow Equipment</h1>
+    <hr>
+    <form action="/borrow_equipment" method="post">
+        {% csrf_token %}
+        <label for="issue_reason">Issue Reason</label><br>
+        <input type="text" id="issue_reason" name="issue_reason" value="{{issue_reason}}"><br>
+        <label for="admin">Choose User</label><br>
+        <select name="admin" id="admin">
+            {% for usr in admin %}
+            <option value="{{ usr.id}}">{{ usr.first_name}} {{ usr.last_name}}</option>
+            {{ usr.first_name}} {{ usr.last_name}}
+            {% endfor %}
+        </select>
+        <br>
+
+        <label for="borroww">Choose Equipment</label><br>
+        <select name="borroww" id="borroww">
+            {% for b in borroww %}
+            {% if b.is_available %}
+            <option value="{{ b.id}}">{{ b.name}}</option>
+            {{ b.name}}
+            {% endif %}
+
+            {% endfor %}
+        </select>
+        <br>
+        <label for="wing">Wing</label><br>
+        <select name="wing" id="wing">
+            {% for wng in wngs %}
+            <option value="{{ wng.id}}">{{ wng.name}}</option>
+            {{ wng.name}}
+            {% endfor %}
+        </select>
+        <br>
+        <hr>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+</html>
